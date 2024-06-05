@@ -59,10 +59,11 @@ $dde.onkeydown = (event)=>{
 
 function getH2(text) {
     // 正規表現を使って、## で始まる見出しを抽出
-    const headings = text.match(/##\s.*/g);
+    const headings = text.match(/^##\s.*/gm);
     // 見出しが見つからない場合は空の配列を返す
     return headings || [];
 }
+        
 async function list(){
   const text = $edit.textContent;
   var ary = getH2(text);
